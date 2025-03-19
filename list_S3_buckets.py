@@ -1,12 +1,10 @@
 import boto3
 
-# Create an S3 client
+# Retrieve the list of existing buckets
 s3 = boto3.client('s3')
-
-# List S3 buckets
 response = s3.list_buckets()
 
-# Print bucket names
-print("S3 Buckets:")
+# Output the bucket names
+print('Existing buckets:')
 for bucket in response['Buckets']:
-    print(f"- {bucket['Name']} (Created on: {bucket['CreationDate']})")
+    print(f'  {bucket["Name"]}')
